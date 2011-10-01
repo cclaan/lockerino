@@ -1,0 +1,3 @@
+// generate this code once you setup google app engine...
+extern char MY_LOCK_ID[] = "bsdifhoushfoqhrwf";
+

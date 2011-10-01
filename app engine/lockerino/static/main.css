@@ -1,0 +1,165 @@
+body {
+  background-color: #eee;
+  color:#3d5163;	
+ /*background-color: #8a97a4;
+ 
+ background-image:url('bg-tiled.png');
+ background-repeat: repeat-x;*/
+ /*font: 12px/18px "Lucida Grande", Lucida, "Lucida Grande Unicode", Verdana, sans-serif;*/
+ font: 14px "Lucida Grande", Lucida, "Lucida Grande Unicode", Verdana, sans-serif;
+ text-shadow: rgba(255,255,255,0.21) 0 1px 0px;
+
+}
+
+
+#main-content {
+	
+	margin: 0 auto;
+	width:560px;
+	font-size:16px;
+	color:#1d3143;
+	background-color: #ccc;
+	padding: 6px;
+	margin-top:16px;
+	margin-bottom:12px;
+}
+
+#logo {
+	
+	margin: 0 auto;
+	width:280px;
+	height:74px;
+	padding-left:100px;
+	padding-top:5px;
+	background: url('lock-icon.png') no-repeat left top;
+	/*margin-bottom:25px;*/
+	color:#1d3143;
+	font-size:52px;
+	font-weight:bold;
+	text-shadow: rgba(255,255,255,0.41) 0 1px 0px;
+	text-decoration:none;
+}
+
+#user-info {
+  float:right;
+  padding:4px;
+  font-size:18px;
+}
+
+#nav-bar {
+/*  margin: 0 auto;*/
+  background-color: #ccc;
+  /*border: 2px solid #fff;*/
+  height:45px;
+  text-align:center;
+  margin-bottom:10px;
+  
+}
+#nav-bar a {
+  text-decoration:none;
+}
+.nav-item {
+  
+  font-size:22px;
+  float:left;
+  background-color: #aaa;
+  /*border:2px solid #ccc;*/
+  padding: 2px;
+  width:98px;
+  height:36px;
+  margin:2px;
+}
+
+.page-content {
+  
+}
+
+#lock-buttons {
+  margin: 0 auto;
+  text-align:center;
+  padding-top:12px;
+}
+
+#lock-id {
+  background:#fff;
+  border:1px solid #999;
+  color:#222;
+  font-weight:bold;
+  font-size:20px;
+  padding:4px;
+  margin:4px;
+}
+
+.step-subtext {
+  
+  font-size:14px;
+  color:#333;
+  padding-left:24px;
+  padding-top:6px;
+  padding-bottom:6px;
+  
+}
+
+.lock-button {
+  
+  width:250px;
+  height:65px;
+  margin-bottom: 18px;
+  font-size:36px;
+  
+}
+
+#lock-status-div {
+  font-size:20px;
+  text-align:center;
+}
+
+.step {
+  padding-top: 16px;
+  padding-left: 8px;
+  font-size:20px;
+  color:#1d3143;
+}
+
+.page-title {
+  /*line-height:25px;*/
+	color:#1d3143;
+	width:505px;
+	height:54px;
+	/*background-color:#1b97a0;*/
+	padding-top:5px;
+	font-size:30px;
+	text-align:center;
+	margin: 0 auto;
+}
+
+/*
+.button-link {
+	text-decoration: none;
+}
+*/
+
+/*
+a {
+	font-weight:normal;
+	text-shadow: rgba(255,255,255,0.21) 0 1px 0px;
+	color:#223543;
+	text-decoration:none;
+	
+}
+*/
+
+#footer {
+	padding-top:50px;
+	height:80px;
+	margin: 0 auto;
+	text-align:center;
+	
+}
+
+
+
+
+
+
+

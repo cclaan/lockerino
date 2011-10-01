@@ -1,0 +1,29 @@
+application: mylockerino
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /static
+  static_dir: static
+  secure: always
+  
+- url: /favicon.ico
+  static_files: static/images/favicon.ico
+  upload: static/images/favicon.ico
+ 
+- url: /howto
+  script: lock-main.py
+  secure: always
+
+- url: /set_lock
+  script: lock-main.py
+  login: required
+  secure: always
+  
+- url: /api/
+  script: lock-main.py
+  secure: always
+    
+- url: /.*
+  script: lock-main.py

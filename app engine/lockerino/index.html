@@ -1,0 +1,175 @@
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Lockerino</title>
+    <link type="text/css" rel="stylesheet" href="/static/main.css" />
+	
+	{% if g_user %}
+	<script src="http://www.google.com/jsapi"></script>
+	<script> 
+		google.load("jquery", "1.4.1");
+	</script>
+	<script src="static/datef.js"></script>
+
+
+	<script type="text/javascript" language="javascript">
+	
+		var myData = {recentJson: ""};
+		
+		$(document).ready(function(){
+			
+			setInterval("getStatus()", 2000);
+			setInterval("updateDate()", 1000);
+			
+		});
+		
+		
+		function setRecent(data) {
+			myData.recentJson = data;
+		}
+		
+		function setStatus(status) {
+			$.ajax({
+			  data: {"status": status },
+			  type: "POST",
+			  url: "/set_lock",
+			  context: document.body,
+			  success: function(data){
+				//alert(data);
+				//$('lock-status-div').text(data);
+			  }
+			});
+			return false;
+		};
+		
+		function updateDate() {
+			
+			if ( !myData.recentJson ) {
+				$('#lock-status-div').html( " ?? " );
+				return;
+			}
+			
+			var d = new Date();
+			var d2 = new Date(Date.parse(myData.recentJson.last_updated));
+			
+			d2.setHours(d2.getHours()-4);
+			
+			var diff = d.getTime() - d2.getTime();
+			
+			var secsOld = (diff/1000);
+			
+			var tsDate= new Date(myData.recentJson.last_updated_ts * 1000);
+			//tsDate.setHours(tsDate.getHours()-4);
+			var diff2 = d.getTime() - tsDate.getTime();
+			
+			secsOld = (diff2/1000.0);
+			
+			if ( secsOld < 0 ) secsOld = 0.0;
+			
+			var dateFormatted = tsDate.format('M jS, g\\:i\\:s a');
+			
+			if ( myData.recentJson ) {
+				$('#lock-status-div').html( "Status: " + myData.recentJson.observed_status + "<br/>Updated: " + prettyDate(secsOld) + "<br/> ( " + dateFormatted + ")" + "<br/> Angle: " + myData.recentJson.lock_angle );
+				
+			} else {
+			
+			}
+		
+		}
+		
+		
+		function getStatus(status) {
+			$.ajax({
+			  data: {"status": status},
+			  dataType: "json",
+			  type: "GET",
+			  url: "/api/get_observed_status",
+			  context: document.body,
+			  success: function(data){
+				setRecent(data);
+				updateDate();
+			  }
+			});
+			return false;
+		};
+		
+		
+		/*
+		 * JavaScript Pretty Date
+		 * Copyright (c) 2008 John Resig (jquery.com)
+		 * Licensed under the MIT license.
+		 */
+
+		// Takes an ISO time and returns a string representing how
+		// long ago the date represents.
+		function prettyDate(diff){
+			//var date = new Date((time || "").replace(/-/g,"/").replace(/[TZ]/g," ")),
+				//diff = (((new Date()).getTime() - date.getTime()) / 1000),
+				
+				day_diff = Math.floor(diff / 86400);
+
+			if ( isNaN(day_diff) || day_diff < 0 || day_diff >= 31 )
+				return;
+
+			return day_diff == 0 && (
+					diff < 60 && "just now" ||
+					diff < 120 && "1 minute ago" ||
+					diff < 3600 && Math.floor( diff / 60 ) + " minutes ago" ||
+					diff < 7200 && "1 hour ago" ||
+					diff < 86400 && Math.floor( diff / 3600 ) + " hours ago") ||
+				day_diff == 1 && "Yesterday" ||
+				day_diff < 7 && day_diff + " days ago" ||
+				day_diff < 31 && Math.ceil( day_diff / 7 ) + " weeks ago";
+		}
+		
+	</script>
+	
+	{% endif %}
+
+
+</head>
+<body>
+
+	<div id="logo">Lockerino</div>
+	
+	<div id="main-content">
+		
+		<div id="nav-bar">
+			<a href='/'><div class="nav-item">HOME</div></a>
+			<a href='/howto'><div class="nav-item">HOW TO</div></a>
+			{% if g_user %}
+			<a href='{{logout_url}}'><div class="nav-item">LOGOUT</div></a><div style="font-size:12px;">Logged in as:<br/>{{g_user.nickname}}</div>
+			{% else %}
+			<a href='{{login_url}}'><div class="nav-item">LOGIN</div></a>
+			{% endif %}
+			
+		</div>
+		
+		{% if g_user %}
+		
+		<div id="lock-buttons">
+		<button  class="lock-button" title="LOCK" onclick="return setStatus('unlocked');">UNLOCK</button><br/>
+		<button  class="lock-button" title="LOCK" onclick="return setStatus('islocked');">LOCK</button>
+		</div>
+		
+		
+		<div id="lock-status-div">
+			Loading...
+		</div>
+	
+		
+		{% else %}
+		<h2>Welcome</h2>If this is your first time here, you need to follow the steps <a href='/howto'>Here.</a><br/><br/>
+		Otherwise, <a href='{{ login_url }}'>Login</a>
+		{% endif %}
+		
+		
+	</div>
+	
+	<!-- <div id="footer">Disclaimer</div> -->
+	
+</body>
+</html>
+
+
+
+

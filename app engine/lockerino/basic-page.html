@@ -1,0 +1,38 @@
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Lockerino - {{ page_title }}</title>
+    <link type="text/css" rel="stylesheet" href="/static/main.css" />
+
+</head>
+
+<body>
+
+	<div id="logo">Lockerino</div>
+	<!-- <div id="user-info">{{ logout_link }}</div> -->
+
+	<div id="main-content">
+		
+		<div id="nav-bar">
+			<a href='/'><div class="nav-item">HOME</div></a>
+			<a href='/howto'><div class="nav-item">HOW TO</div></a>
+			{% if g_user %}
+			<a href='{{logout_url}}'><div class="nav-item">LOGOUT</div></a><div style="font-size:12px;">Logged in as:<br/>{{g_user.nickname}}</div>
+			{% else %}
+			<a href='{{login_url}}'><div class="nav-item">LOGIN</div></a>
+			{% endif %}
+			<!-- <div class="nav-item" style="float: right; width: 200px;">{{ logout_link }}</div> -->
+		</div>
+		
+		<!-- <div class="page-title">
+			{{ page_title }}
+		</div> -->
+		
+		{{ page_content }}
+		
+	</div>
+
+	<div id="footer">Disclaimer</div>
+	
+</body>
+</html>
+

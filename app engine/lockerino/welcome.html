@@ -1,0 +1,38 @@
+<h2>Disclaimer:</h2>
+
+This is a 'just for fun' project that we hacked together to unlock our door at home.<br/>
+It is not intended to be used in a serious way, since it could malfunction, be hacked, or perhaps accidentally unlock your door.<br/><br/>
+<b>Basically, It is <span style="color:#ee0000">*NOT SECURE*</span> and should not be used to protect your belongings or loved ones!!</b><br/>
+
+<h2>How to get started:</h2>
+{% if g_user %}
+    <div style="text-decoration: line-through;" class="step"><b>1. </b><a href='{{ login_url }}'>Login</a> with your google account.</div>
+{% else %}
+	<div class="step"><b>1. </b><a href='{{ login_url }}'>Login</a> with your google account.</div>
+{% endif %}
+
+
+{% if lock_id %}
+	<div style="text-decoration: line-through;" class="step"><b>2. </b>Get a lock ID</div>
+	<div class="step-subtext">Your Lock id is: 
+	<div id="lock-id">{{ lock_id }} </div>
+	Don't share this with people that you don't want unlocking your door!<br/>
+	Only you: ({{ g_user.nickname }}) can see this<br/><br/>
+	<b>*This code must be compiled into your Arduino and iPhone projects for them to work*</b>
+	</div>
+{% else %}
+	<div class="step"><b>2. </b>Get a lock ID</div>
+{% endif %}
+
+
+
+<div class="step"><b>3. </b>Build the arduino and hardware (<a href='http://www.instructables.com/id/How-to-stop-a-leak-with-scotch-tape-and-a-bottle/'>How-to on Insctructables</a>)</div>
+
+<div class="step"><b>4. </b><a href='http://github.com/laanlabs/'>Download the iPhone app</a> and build it</div>
+
+<div class="step"><b>5. </b>If you want SMS alerts, you need a <a href='http://www.twilio.com/'>twilio</a> account</div>
+
+
+<div class="step"><b>6. </b>Enjoy, now you can lock and unlock your door from the web!</div>
+
+
