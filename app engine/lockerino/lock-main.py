@@ -308,11 +308,51 @@ class SetLockWeb(webapp.RequestHandler):
         self.response.headers["Content-Type"] = "text/json"
         self.response.out.write(json.dumps(json_resp))
         
+class SmsCallback(webapp.RequestHandler):
+    def post(self):
+        
+        # get the body and the from phone number to verify
+        mybody = self.request.get('Body')
+        mynum = self.request.get('From')
+        
+        our_lock_id = self.request.get('lock_id')
+        if our_lock_id == None:
+            blah = "<Response><Sms>You need to put your lock ID in the twilio SMS url</Sms></Response>"
+            self.response.out.write(blah)
+            return
+            
+        blah = "<Response><Sms>Hello, "
+
+        #our_lock_id = OUR_LOCK_ID
+
+        dl = DoorLock.get_lock_by_id(our_lock_id)
+
+        #lock_set = set_lock_status_trans(dl,st)
+        mybody = mybody.lower()
+
+        # replace your number here to only allow txt's from you
+        if mynum == "+19175555555":
+            if mybody == "unlock" or mybody == "open" or mybody == "open sesame":
+                set_lock_status_trans(dl,DoorLock.UNLOCKED)
+                blah += "I unlocked the door!"
+            elif mybody == "lock" or mybody == "close":
+                set_lock_status_trans(dl,DoorLock.IS_LOCKED)
+                blah += "I locked your door"
+            else:
+                blah += "I didn't understand that command, use lock or unlock"
+        else:
+            blah += "You're not a valid number"   
+
+        blah += "</Sms></Response>"
+
+        self.response.out.write(blah)
+        
 
 application = webapp.WSGIApplication([
 ('/api/set_observed_status', SetObservedStatus), # used by arduino, returns lock_status
 ('/api/get_observed_status', GetObservedStatus), # used by iphone
 ('/api/set_lock', SetLockAPI ), # used by iphone app
+('/sms_action', SmsCallback ), # SMSs received here
 ('/set_lock', SetLockWeb ), # used by web page
 ('/howto', HowToWeb ), # 
 ('/.*', MainPage) ],

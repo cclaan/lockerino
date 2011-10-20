@@ -229,6 +229,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -276,13 +278,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>5</integer>
-									<integer>1</integer>
+									<integer>36</integer>
+									<integer>17</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {244, 687}}</string>
+							<string>{{0, 163}, {244, 687}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -312,14 +314,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>LockerinoViewController.mm</string>
+								<string>Lockerino-Info.plist</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -327,16 +327,15 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>LockerinoViewController.mm</string>
+										<string>Lockerino-Info.plist</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>74AB3C911437AF3D0069A925</string>
+										<string>74AB3C971437B0280069A925</string>
 										<key>history</key>
 										<array>
 											<string>745CA7FF142FC23D00472A16</string>
 											<string>745CA859142FE11A00472A16</string>
-											<string>745CA8831430DADE00472A16</string>
 											<string>745CA8991430DE3100472A16</string>
 											<string>745CA89F1430E27100472A16</string>
 											<string>745CA8C51430F34200472A16</string>
@@ -349,7 +348,8 @@
 											<string>74AB3A771431704E0069A925</string>
 											<string>74AB3C6D143529170069A925</string>
 											<string>74AB3C701435297E0069A925</string>
-											<string>74AB3C78143529EE0069A925</string>
+											<string>74AB3C951437B0280069A925</string>
+											<string>74AB3C961437B0280069A925</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -547,6 +547,8 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>1C78EAAD065D492600B07095</string>
+		<string>1CD10A99069EF8BA00B06720</string>
 		<string>745CA75B142FAEA500472A16</string>
 		<string>/Users/cclaan/projects-2011/lockerino/iphone/Lockerino/Lockerino.xcodeproj</string>
 	</array>
@@ -672,8 +674,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {316, 194}}</string>
-											<string>{{316, 0}, {378, 194}}</string>
+											<string>{{0, 0}, {316, 198}}</string>
+											<string>{{316, 0}, {378, 198}}</string>
 										</array>
 									</dict>
 									<key>VerticalSplitView</key>
@@ -688,8 +690,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {694, 194}}</string>
-											<string>{{0, 194}, {694, 187}}</string>
+											<string>{{0, 0}, {694, 198}}</string>
+											<string>{{0, 198}, {694, 183}}</string>
 										</array>
 									</dict>
 								</dict>
@@ -722,7 +724,7 @@
 										<real>148</real>
 									</array>
 									<key>Frame</key>
-									<string>{{316, 0}, {378, 194}}</string>
+									<string>{{316, 0}, {378, 198}}</string>
 									<key>RubberWindowFrame</key>
 									<string>21 433 694 422 0 0 1440 878 </string>
 								</dict>
@@ -750,13 +752,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>74AB38E01430FF760069A925</string>
+				<string>74AB3C981437B0280069A925</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>74AB38E11430FF760069A925</string>
-				<string>74AB38E21430FF760069A925</string>
-				<string>74AB38E31430FF760069A925</string>
-				<string>74AB38E41430FF760069A925</string>
-				<string>74AB38E51430FF760069A925</string>
+				<string>74AB3C991437B0280069A925</string>
+				<string>74AB3C9A1437B0280069A925</string>
+				<string>74AB3C9B1437B0280069A925</string>
+				<string>74AB3C9C1437B0280069A925</string>
+				<string>74AB3C9D1437B0280069A925</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -875,8 +877,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -912,7 +912,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>74AB38E61430FF760069A925</string>
+				<string>74AB3C9E1437B0280069A925</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
